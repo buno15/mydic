@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "109701841029-nf9laoehhkee4kl9thatfga37hqo1f5v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bunooboi.mydic",
+            "certificate_hash": "52e2e7b73bebf5aabf407ac2c12091ae644e48a3"
+          }
+        },
+        {
           "client_id": "109701841029-v8geil1aqf8s3fg0sraqugmn65ion12k.apps.googleusercontent.com",
           "client_type": 3
         }

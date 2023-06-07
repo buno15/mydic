@@ -4,6 +4,7 @@ import 'package:mydic/edit_card.dart';
 import "package:firebase_auth/firebase_auth.dart";
 import "package:firebase_core/firebase_core.dart";
 import "firebase_options.dart";
+import 'package:google_sign_in/google_sign_in.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +46,9 @@ class _HomeState extends State<Home> {
   String _email = "kiyohiro0928@gmail.com";
   String _password = "password";
 
+  String _displayName = "";
+  static final googleLogin = GoogleSignIn(scopes: ["email", "https://www.googleapis.com/auth/contacts.readonly"]);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +76,7 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Hello Flutter',
+              '$_displayName',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             ElevatedButton(
@@ -101,14 +105,19 @@ class _HomeState extends State<Home> {
                 child: const Text("Login")),
             ElevatedButton(
                 onPressed: () async {
-                  try {
-                    (await FirebaseAuth.instance.sendPasswordResetEmail(email: _email));
-                    print("send mail");
-                  } catch (e) {
-                    print(e);
+                  GoogleSignInAccount? signinAccount = await googleLogin.signIn();
+                  if (signinAccount == null) return;
+                  GoogleSignInAuthentication auth = await signinAccount.authentication;
+                  final OAuthCredential credential = GoogleAuthProvider.credential(idToken: auth.idToken, accessToken: auth.accessToken);
+
+                  final User? user = (await FirebaseAuth.instance.signInWithCredential(credential)).user;
+                  if (user != null) {
+                    setState(() {
+                      _displayName = user.displayName!;
+                    });
                   }
                 },
-                child: const Text("Reset pass"))
+                child: const Text("Google"))
           ],
         ),
       ),
