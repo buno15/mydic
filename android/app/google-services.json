@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "109701841029",
+    "project_id": "mydic-53167",
+    "storage_bucket": "mydic-53167.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109701841029:android:0956670c64b8da50fbe9ec",
+        "android_client_info": {
+          "package_name": "com.bunooboi.mydic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109701841029-v8geil1aqf8s3fg0sraqugmn65ion12k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmPO2VIS-lxCESti8mP0mIl4aBl8UpprY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109701841029-gf3kqrvhqek30ijfs3p7n5hnous5phpv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "109701841029-29lg9ehcg00jj26ito7bcl8qsvs5is10.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bunooboi.mydic"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
